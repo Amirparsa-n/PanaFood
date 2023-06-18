@@ -1,0 +1,5 @@
+/* gradient bg header */
+.gradientBgHeader {
+    background: rgb(254,243,243);
+    background: linear-gradient(180deg, rgba(254,243,243,1) 60%, rgba(255,255,255,1) 100%);
+}
