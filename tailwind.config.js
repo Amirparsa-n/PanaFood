@@ -28,6 +28,7 @@ export default {
 
       boxShadow: {
         'button': '0 3px 15px -1px rgba(233, 80, 81, 0.6)',
+        'MobileNavigationBar': '0 0 15px 1px rgba(0, 0, 0, 0.22) '
       },
 
     },

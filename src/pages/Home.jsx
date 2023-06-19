@@ -6,12 +6,23 @@ import banner from '../assets/images/baner.webp';
 import Cherry from '../assets/images/Cherry.png'
 
 
+// Component
+import Navbar from '../components/Navbar';
+import MobileNavigationBar from '../components/MobileNavigationBar';
+
+
 const Home = () => {
     return (
+        <>
         <div className='gradientBgHeader h-screen w-full'>
+
+            <div className='hidden md:block'>
+                <Navbar />
+            </div>
+
             <div className='container h-[2000px]'>
                 {/* Logo in mobile */}
-                <div className='py-4 flex justify-center'>
+                <div className='py-4 flex justify-center md:hidden'>
                     <img src={logo} alt="logo" className='w-[120px]'/>
                 </div>
 
@@ -58,6 +69,13 @@ const Home = () => {
                 </div>
             </div>
         </div>
+
+
+        <div className='fixed bottom-2 right-0 w-full container'>
+            <MobileNavigationBar />
+        </div>
+
+        </>
     );
 };
 
