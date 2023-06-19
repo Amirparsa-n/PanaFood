@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
+    "aos": "^2.3.4",
     "dotenv": "^16.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

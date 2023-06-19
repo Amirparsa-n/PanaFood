@@ -14,11 +14,12 @@ import CartList from './pages/CartList';
 import Page404 from './pages/Page404'; 
 
 
+
 function App() {
 
   return (
     <ProductsContextProvider>
-      <div className='text-slate-800 font-Mazzard'>
+      <div className='text-slate-800 font-Mazzard h-[2000px]'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/:id' element={<FoodDetailsPage />} />
