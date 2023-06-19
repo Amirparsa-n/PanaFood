@@ -8,6 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 // component
 import CategoriesDetails from './shared/CategoriesDetails';
+import SkeletonCategory from './SkeletonCategory';
 
 const Categories = () => {
 
@@ -33,7 +34,7 @@ const Categories = () => {
 
     const { categoryData } = useContext(ProductsContext);
 
-    console.log(categoryData);
+    const quantityCarts = [1, 2, 3, 4, 5, 6, 7, 8];
 
     return (
         <Carousel 
@@ -41,9 +42,17 @@ const Categories = () => {
             itemClass="carousel-Categories"
             removeArrowOnDeviceType={["tablet", "mobile","desktop","superLargeDesktop"]}
         >
-            {categoryData.map((category) => (
-                <CategoriesDetails key={category.name} name={category.name} description={category.description} image={category.assets[0].url} />
-            ))}
+            {categoryData.length ? 
+                categoryData.map((category) => (
+                    <CategoriesDetails key={category.name} name={category.name} description={category.description} image={category.assets[0].url} />
+                ))
+                
+            :
+            quantityCarts.map((item) => (
+                <SkeletonCategory key={item}/>
+            ))
+            }
+
         </Carousel>
     );
 };
