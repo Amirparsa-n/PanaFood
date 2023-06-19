@@ -3,3 +3,14 @@
     background: rgb(254,243,243);
     background: linear-gradient(180deg, rgba(254,243,243,1) 60%, rgba(255,255,255,1) 100%);
 }
+
+.carousel-Categories {
+    /* display: flex;
+    flex-direction: row; */
+    /* justify-content: space-between; */
+    /* row-gap: 16px; */
+}
+
+.react-multi-carousel-track {
+    flex-direction: row-reverse !important;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 const ServiceSection = ({ image, title, description }) => {
     return (
         <div 
-            className='bg-white shadow-simple p-4 flex gap-x-8 justify-between items-center rounded-xl md:flex-col-reverse 
+            className='bg-white shadow-simple p-4 md:p-0 flex gap-x-8 justify-between items-center rounded-xl md:flex-col-reverse 
             md:shadow-none md:gap-y-8'
         >
             <div className='md:text-center'>

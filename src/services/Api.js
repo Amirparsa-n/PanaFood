@@ -7,6 +7,13 @@ const productsData = async () => {
     return data;
 }
 
+const categoriesData = async () => {
+    const { data } = await commerce.categories.list({limit: 20,})
+    return data;
+}
+
 export {productsData};
+
+export {categoriesData};
 
 
