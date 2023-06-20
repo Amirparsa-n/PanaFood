@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import MobileNavigationBar from '../components/MobileNavigationBar';
 import ServiceSection from '../components/shared/ServiceSection';
 import Categories from '../components/Categories';
+import FoodProducts from '../components/FoodProducts';
 
 
 // Data
@@ -59,6 +60,14 @@ const Home = () => {
                         <Categories />
                     </div>
                 </div>
+
+                {/* Foods */}
+                <div>
+                    <div className='mt-20 md:mt-28'>
+                        <FoodProducts />
+                    </div>
+                </div>
+
 
             </div>
 

@@ -33,7 +33,12 @@ export default {
 
       fontSize: {
         '28' : '28px',
-      }
+      },
+
+      padding: {
+        '9' : '9px',
+      },
+
 
     },
   },
