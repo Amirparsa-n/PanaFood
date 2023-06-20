@@ -9,7 +9,7 @@ import MobileNavigationBar from '../components/MobileNavigationBar';
 import ServiceSection from '../components/shared/ServiceSection';
 import Categories from '../components/Categories';
 import FoodProducts from '../components/FoodProducts';
-
+import Contact from '../components/Contact';
 
 // Data
 import { ServiceData } from '../services/DummyData';
@@ -67,11 +67,12 @@ const Home = () => {
                         <FoodProducts />
                     </div>
                 </div>
-
-
             </div>
 
+        </div>
 
+        <div>
+            <Contact />      
         </div>
 
 
