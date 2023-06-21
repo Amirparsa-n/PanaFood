@@ -23,6 +23,7 @@ export default {
       colors: {
         primaryRed: '#E95051',
         primaryYellow: '#FDC55E',
+        Footer: '#202123',
       },
 
       boxShadow: {

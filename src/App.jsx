@@ -31,7 +31,7 @@ function App() {
   return (
     <ProductsContextProvider>
       <ContextProvider>
-        <div className='text-slate-800 font-Mazzard h-[9000px]'>
+        <div className='text-slate-800 font-Mazzard'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/:id' element={<FoodDetailsPage />} />

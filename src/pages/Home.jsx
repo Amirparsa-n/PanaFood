@@ -82,11 +82,7 @@ const Home = () => {
 
 
         {/* MobileNavigationBar */}
-        <div className='w-full mx-auto'>
-            <div className='fixed bottom-2 right-0 max-w-3xl container md:hidden'>
-                    <MobileNavigationBar  />
-            </div>
-        </div>
+        <MobileNavigationBar  />
 
         </>
     );
