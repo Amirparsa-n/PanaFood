@@ -4,13 +4,33 @@
     background: linear-gradient(180deg, rgba(254,243,243,1) 60%, rgba(255,255,255,1) 100%);
 }
 
-.carousel-Categories {
-    /* display: flex;
-    flex-direction: row; */
-    /* justify-content: space-between; */
-    /* row-gap: 16px; */
-}
-
 .react-multi-carousel-track {
     flex-direction: row-reverse !important;
+}
+
+
+.BgContact {
+    background-image: url('./assets/images/BgContact.svg');
+    background-size: cover;
+    height: 370px;
+}
+
+@media (min-width: 640px) { 
+    .BgContact {
+        background-image: none;
+    }
+}
+
+@media (min-width: 1024px) { 
+    .BgContact {
+        background-image: url('./assets/images/BgContactLg.svg');
+        background-size: cover;
+        height: 100%;
+    }
+}
+
+@media (min-width: 3000px) {
+    .BgContact {
+        background-image: none;
+    }
 }

@@ -21,7 +21,7 @@ const Navbar = () => {
                         <li className='text-primaryRed cursor-pointer'>Why pana?</li>
                         <li className='hover:text-primaryRed cursor-pointer'>Service</li>
                         <li className='hover:text-primaryRed cursor-pointer'>Menu</li>
-                        <li className='hover:text-primaryRed cursor-pointer'>contact</li>
+                        <li className='hover:text-primaryRed cursor-pointer'>Delivery</li>
                     </ul>
                 </div>
 

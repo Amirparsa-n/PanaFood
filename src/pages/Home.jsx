@@ -9,7 +9,9 @@ import MobileNavigationBar from '../components/MobileNavigationBar';
 import ServiceSection from '../components/shared/ServiceSection';
 import Categories from '../components/Categories';
 import FoodProducts from '../components/FoodProducts';
-import Contact from '../components/Contact';
+import Delivery from '../components/Delivery';
+import Footer from '../components/Footer';
+
 
 // Data
 import { ServiceData } from '../services/DummyData';
@@ -71,9 +73,12 @@ const Home = () => {
 
         </div>
 
-        <div>
-            <Contact />      
+        <div className='mt-28 md:mt-32' >
+            <Delivery />      
         </div>
+
+        {/* Footer */}
+        <Footer />
 
 
         {/* MobileNavigationBar */}
