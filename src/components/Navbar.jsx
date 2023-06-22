@@ -7,7 +7,7 @@ import logo from '../assets/images/Logo.png';
 
 const Navbar = () => {
     return (
-        <div className='h-[80px] xl:h-[120px] bg-transparent flex items-center'>
+        <div className='h-[80px] xl:h-[120px] bg-transparent flex items-center '>
             
             <div className='flex justify-between items-center container'>
                 <div className=''>

@@ -6,7 +6,7 @@ import { ProductsContext } from '../context/ProductsContextProvider';
 import { ContextDataProvider } from '../context/ContextProvider';
 
 // component
-import FoodItem from './shared/foodItem';
+import FoodItem from './shared/FoodItem';
 import SkeletonFoodItem from './SkeletonFoodItem';
 
 
@@ -15,7 +15,7 @@ const FoodProducts = () => {
     const { foodData} = useContext(ProductsContext);
     const { currentCategory} = useContext(ContextDataProvider);
     
-    
+
     const resultFilter = foodData.filter(category => category.categories[0].name === currentCategory)
     console.log(resultFilter);
 
@@ -26,7 +26,7 @@ const FoodProducts = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8'>
             {resultFilter.length ? 
                     resultFilter.map(food => (
-                        <FoodItem key={food.id} name={food.name} price={food.price.formatted} image={food.image.url} />
+                        <FoodItem key={food.id} name={food.name} price={food.price.formatted} image={food.image.url} id={food.id} />
                     ))
                     
                 :
