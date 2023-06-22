@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 // component
 import RecommendedFoodDetails from './shared/RecommendedFoodDetails';
+import SkeletonRecommendedFoodDetails from './SkeletonRecommendedFoodDetails';
 
 // Carousel 
 import Carousel from 'react-multi-carousel';
@@ -40,6 +41,8 @@ const RecommendedFood = ({ food, categoryData, id, resultFilter }) => {
         }
       };
 
+      const quantitySkeletonRecommendedFoodDetails = [0,1,2,3,4,5]
+
     return (
         <div className='container'>
                 <h2 className='text-28 font-bold mb-16'>Recommended For You</h2>
@@ -57,14 +60,18 @@ const RecommendedFood = ({ food, categoryData, id, resultFilter }) => {
                     autoPlaySpeed={3000}
 
                 >
-                {RecommendedFood.length ?  
-                    
-                    RecommendedFood.map((food) => (
-                        <RecommendedFoodDetails key={food.id} name={food.name} price={food.price.formatted} image={food.image.url} id={food.id} />
-                    ))
+                {RecommendedFood.length ?
+
+                  RecommendedFood.map((food) => (
+                    <RecommendedFoodDetails key={food.id} name={food.name} price={food.price.formatted} image={food.image.url} id={food.id} />
+                  ))
+
 
                 :
-                    'loading...'
+
+                  quantitySkeletonRecommendedFoodDetails.map(item => (
+                    <SkeletonRecommendedFoodDetails key={item} />
+                  ))
                 }
                 </Carousel>
 

@@ -18,12 +18,10 @@ const SkeletonFoodItem = () => {
         </div>
 
         {/* Cart */}
-        <div className='flex justify-center mt-6 '>
-            <Skeleton
-                className='w-36 rounded-2xl h-10 z-[1]'
-            >
+        <div className='flex justify-between items-center mt-6 '>
+                <Skeleton className='w-36 rounded-2xl h-10 z-[1]' />
 
-            </Skeleton>
+                <Skeleton className='w-24 text-xl'/>
         </div>
 
     </div>
