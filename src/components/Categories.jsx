@@ -42,10 +42,13 @@ const Categories = () => {
             itemClass="carousel-Categories"
             removeArrowOnDeviceType={["tablet", "mobile","desktop","superLargeDesktop"]}
         >
-            {categoryData.length ? 
+              {categoryData.length ? 
+               
+
                 categoryData.map((category) => (
-                    <CategoriesDetails key={category.name} name={category.name} description={category.description} image={category.assets[0].url} />
+                  <CategoriesDetails key={category.name} name={category.name} description={category.description} image={category.assets[0].url} />
                 ))
+
                 
             :
             quantityCarts.map((item) => (

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useLocation } from "react-router-dom";
 import './App.css'
 
 import { Route, Routes } from 'react-router-dom';
@@ -20,6 +21,11 @@ import "aos/dist/aos.css";
 
 
 function App() {
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
         Aos.init({
