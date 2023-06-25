@@ -15,7 +15,7 @@ import gitHub from '../assets/icons/gitHub.svg';
 
 const Footer = () => {
     return (
-        <div className='mt-20'>
+        <div className='mt-72 md:mt-20'>
             <img src={bgFooter} alt="" className='-mb-1 lg:-mb-20 xl:-mb-28' />
 
             <div className='bg-Footer pb-24 md:pb-8'>

@@ -11,8 +11,8 @@ import phoneCall from '../assets/icons/phone-call.svg'
 
 const Delivery = () => {
     return (
-        <div className='bg-cover bg-no-repeat BgContact' >
-            <div className='container'>
+        <div className='bg-cover bg-no-repeat BgContact'  >
+            <div className='container' >
                 <div className='flex flex-col gap-y-12 md:flex-row md:justify-between lg:justify-around md:gap-x-12 lg:gap-0 lg:items-center'>
                     <div className='flex justify-center md:justify-start ' data-aos="fade-up-right" data-aos-delay="500">
                         <img src={motor} alt="motor" className='w-72 md:w-fit lg:w-[450px]' />

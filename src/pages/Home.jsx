@@ -28,7 +28,7 @@ const Home = () => {
         <div className='container'>
 
             {/* section Service */}
-            <div className='mt-16 md:mt-26'>
+            <div className='mt-16 md:mt-26' id='Service'>
                 {/* title */}
                 <div className='text-center' data-aos="fade-down">
                     <p className='text-lg md:text-2xl font-medium text-primaryRed'>WHAT WE SERVE</p>
@@ -48,7 +48,7 @@ const Home = () => {
             </div>
 
                 
-            <div className='mt-16 md:mt-28'>
+            <div className='mt-16 md:mt-28' id='Menu'>
                 {/* title */}
                 <div className='text-center' data-aos="fade-down">
                     <p className='text-lg md:text-2xl font-medium text-primaryRed'>menu</p>
@@ -74,7 +74,7 @@ const Home = () => {
 
         </div>
 
-        <div className='mt-28 md:mt-32' >
+        <div className='mt-28 md:mt-32' id='Delivery'>
             <Delivery />      
         </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 // images
 import logo from '../assets/images/Logo.png';
@@ -18,10 +19,38 @@ const Navbar = () => {
 
                 <div>
                     <ul className='flex gap-x-6 lg:gap-x-12 text-[18px] lg:text-[22px]'>
-                        <li className='text-primaryRed cursor-pointer'>Why pana?</li>
-                        <li className='hover:text-primaryRed cursor-pointer'>Service</li>
-                        <li className='hover:text-primaryRed cursor-pointer'>Menu</li>
-                        <li className='hover:text-primaryRed cursor-pointer'>Delivery</li>
+                        <li className='text-primaryRed cursor-pointer'>
+                            <HashLink 
+                             to="/#WhyPana"
+                             scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                             >
+                                Why pana?
+                            </HashLink>
+                        </li>
+                        <li className='hover:text-primaryRed cursor-pointer'>
+                            <HashLink 
+                             to="/#Service"
+                             scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                             >
+                                Service
+                            </HashLink>
+                        </li>
+                        <li className='hover:text-primaryRed cursor-pointer'>
+                            <HashLink 
+                             to="/#Menu"
+                             scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                             >
+                                Menu
+                            </HashLink>
+                        </li>
+                        <li className='hover:text-primaryRed cursor-pointer'>
+                        <HashLink 
+                             to="/#Delivery"
+                             scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                             >
+                                Delivery
+                            </HashLink>
+                        </li>
                     </ul>
                 </div>
 

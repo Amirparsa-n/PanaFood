@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { HashLink } from 'react-router-hash-link';
+
 import Navbar from './Navbar';
 
 // images
@@ -15,7 +17,7 @@ const Header = () => {
                 <Navbar />
             </div>
 
-            <div className='container'>
+            <div className='container' id='WhyPana'>
                 {/* Logo in mobile */}
                 <div className='py-4 flex justify-center md:hidden'>
                     <img src={logo} alt="logo" className='w-[120px]'/>
@@ -54,9 +56,14 @@ const Header = () => {
                             </p>
 
                             <div className='flex justify-center md:justify-start mt-8'>
-                                <button type='button' className='bg-primaryRed py-4 md:py-[22px] px-7 md:px-8 text-white rounded-full shadow-button md:text-2xl'>
-                                    Get Started
-                                </button>
+                                <HashLink 
+                                to="/#Menu"
+                                scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                                >
+                                    <button type='button' className='bg-primaryRed py-4 md:py-[22px] px-7 md:px-8 text-white rounded-full shadow-button md:text-2xl'>
+                                        Get Started
+                                    </button>
+                                </HashLink>
                             </div>
                         </div>
 
