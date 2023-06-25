@@ -13,7 +13,7 @@ import ContextProvider from './context/ContextProvider';
 import Home from './pages/Home';
 import FoodDetailsPage from './pages/FoodDetailsPage';
 import CartList from './pages/CartList';
-import Page404 from './pages/Page404'; 
+import NotFound from './pages/NotFound';
 
 // Aos
 import Aos from 'aos';
@@ -42,7 +42,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/:id' element={<FoodDetailsPage />} />
             <Route path='/cart' element={<CartList />} />
-            <Route path='/notfound' element={<Page404 />} />
+            <Route path='/notfound' element={<NotFound />} />
           </Routes>
         </div>
       </ContextProvider>
