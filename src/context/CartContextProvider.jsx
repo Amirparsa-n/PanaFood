@@ -80,7 +80,7 @@ const cartReducer = (state , action) => {
         case "CHECKOUT":
             return {
                 selectedItems: [],
-                itemCounter: 0, 
+                itemsCounter: 0, 
                 total: 0,
                 checkout: true,
             }
@@ -88,7 +88,7 @@ const cartReducer = (state , action) => {
         case "CLEAR":
             return {
                 selectedItems: [],
-                itemCounter: 0, 
+                itemsCounter: 0, 
                 total: 0,
                 checkout: false,
             }
