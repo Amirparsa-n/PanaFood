@@ -12,10 +12,10 @@ const initialValue = {
 const cartReducer = (state , action) => {
 
     const sumItems = (items) => {
-        const itemsCounter = items.reduce((number, food) => number + food.quantity, 0);
+        const itemCounter = items.reduce((number, food) => number + food.quantity, 0);
         const total = items.reduce((number, food) => number + food.quantity * food.price.formatted, 0);
 
-        return {itemsCounter, total};
+        return {itemCounter, total};
     }
 
     console.log(state);

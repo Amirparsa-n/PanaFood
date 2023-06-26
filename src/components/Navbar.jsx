@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -6,7 +6,14 @@ import { HashLink } from 'react-router-hash-link';
 // images
 import logo from '../assets/images/Logo.png';
 
+// context
+import { CartContext } from '../context/CartContextProvider';
+
+
 const Navbar = () => {
+
+    const {state} = useContext(CartContext);
+
     return (
         <div className='h-[80px] xl:h-[120px] bg-transparent flex items-center '>
             
@@ -65,12 +72,14 @@ const Navbar = () => {
                         </svg>
                     </div>
 
-                    <div className='relative'>
-                        <div className='bg-primaryRed absolute -top-[14px] left-[14px] text-white rounded-full '>
-                            <span className='p-[6px] '>4</span>
+                    <Link to="/cart">
+                        <div className='relative'>
+                            <div className='bg-primaryRed absolute -top-[14px] left-[14px] text-white rounded-full '>
+                                <span className='p-[6px]'>{state.itemCounter}</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28.624"><g fill="#020617"><path d="M22.55 20.368H8.374a4.9 4.9 0 0 1-3.475-1.418 4.218 4.218 0 0 1-1.238-3.333L4.766 3.321a1.285 1.285 0 0 0-.386-1.037 1.5 1.5 0 0 0-1.078-.434h-2.3a.971.971 0 0 1-1-.926.971.971 0 0 1 1-.926h2.313a3.6 3.6 0 0 1 2.543 1.039 3.165 3.165 0 0 1 .772 1.284h16.628a4.933 4.933 0 0 1 3.492 1.382 4.161 4.161 0 0 1 1.238 3.321l-.719 9.258a4.643 4.643 0 0 1-4.719 4.086ZM6.697 4.16l-1.038 11.6a2.4 2.4 0 0 0 .706 1.926 2.782 2.782 0 0 0 2.01.815H22.55a2.761 2.761 0 0 0 2.743-2.37l.719-9.258a2.409 2.409 0 0 0-.717-1.923 2.831 2.831 0 0 0-2.024-.8H6.697Z" data-name="Path 3"/><path d="M19.633 28.624a3.3 3.3 0 1 1 3.3-3.3 3.312 3.312 0 0 1-3.3 3.3Zm0-4.128a.826.826 0 1 0 .826.826.818.818 0 0 0-.826-.826Z" data-name="Path 4"/><path d="M9.583 28.624a3.3 3.3 0 1 1 3.3-3.3 3.312 3.312 0 0 1-3.3 3.3Zm0-4.128a.826.826 0 1 0 .826.826.818.818 0 0 0-.826-.826Z" data-name="Path 5"/><path d="M25.882 10.321H6.07a1.238 1.238 0 1 1 0-2.477h19.812a1.238 1.238 0 0 1 0 2.477Z" data-name="Path 6"/></g></svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28.624"><g fill="#020617"><path d="M22.55 20.368H8.374a4.9 4.9 0 0 1-3.475-1.418 4.218 4.218 0 0 1-1.238-3.333L4.766 3.321a1.285 1.285 0 0 0-.386-1.037 1.5 1.5 0 0 0-1.078-.434h-2.3a.971.971 0 0 1-1-.926.971.971 0 0 1 1-.926h2.313a3.6 3.6 0 0 1 2.543 1.039 3.165 3.165 0 0 1 .772 1.284h16.628a4.933 4.933 0 0 1 3.492 1.382 4.161 4.161 0 0 1 1.238 3.321l-.719 9.258a4.643 4.643 0 0 1-4.719 4.086ZM6.697 4.16l-1.038 11.6a2.4 2.4 0 0 0 .706 1.926 2.782 2.782 0 0 0 2.01.815H22.55a2.761 2.761 0 0 0 2.743-2.37l.719-9.258a2.409 2.409 0 0 0-.717-1.923 2.831 2.831 0 0 0-2.024-.8H6.697Z" data-name="Path 3"/><path d="M19.633 28.624a3.3 3.3 0 1 1 3.3-3.3 3.312 3.312 0 0 1-3.3 3.3Zm0-4.128a.826.826 0 1 0 .826.826.818.818 0 0 0-.826-.826Z" data-name="Path 4"/><path d="M9.583 28.624a3.3 3.3 0 1 1 3.3-3.3 3.312 3.312 0 0 1-3.3 3.3Zm0-4.128a.826.826 0 1 0 .826.826.818.818 0 0 0-.826-.826Z" data-name="Path 5"/><path d="M25.882 10.321H6.07a1.238 1.238 0 1 1 0-2.477h19.812a1.238 1.238 0 0 1 0 2.477Z" data-name="Path 6"/></g></svg>
-                    </div>
+                    </Link>
 
                     <div>
                         <Link type='button' className='flex gap-x-2 bg-primaryRed px-2 lg:px-4 py-2 lg:py-3 rounded-full text-white items-center shadow-button'>
