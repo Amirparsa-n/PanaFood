@@ -30,7 +30,7 @@ const FoodDetailsPage = () => {
 
     const navigate = useNavigate();
     
-    const resultFilter = foodData.filter(item => item.id === id);
+    const resultFilter = foodData.filter(item => item.id == id);
     console.log(resultFilter);
 
 
@@ -58,7 +58,7 @@ const FoodDetailsPage = () => {
                 <div>
 
                     {resultFilter.length ?
-                        <FoodDetails name={resultFilter[0].name} image={resultFilter[0].image.url}  description={resultFilter[0].description} price={resultFilter[0].price.formatted} />
+                        <FoodDetails name={resultFilter[0].name} image={resultFilter[0].image.url}  description={resultFilter[0].description} price={resultFilter[0].price.formatted} id={id} data={resultFilter[0]} />
                         
                     :
                         <div className='flex justify-center h-screen items-center -mt-[74px]'>
@@ -75,7 +75,7 @@ const FoodDetailsPage = () => {
 
 
                 <div className='md:hidden'>
-                    {resultFilter.length && <AddToCartFooterM price={resultFilter[0].price.formatted} />}
+                    {resultFilter.length && <AddToCartFooterM price={resultFilter[0].price.formatted} data={resultFilter[0]} id={id} />}
                 </div>
 
                 <div className='hidden md:block'>

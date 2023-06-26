@@ -44,6 +44,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/:id' element={<FoodDetailsPage />} />
               <Route path='/cart' element={<CartList />} />
+              
               <Route path='/notfound' element={<NotFound />} />
             </Routes>
           </div>

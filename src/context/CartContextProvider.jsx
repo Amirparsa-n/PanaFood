@@ -32,7 +32,8 @@ const cartReducer = (state , action) => {
         return {
             ...state,
             selectedItems:[...state.selectedItems],
-            ...sumItems(state.selectedItems)
+            ...sumItems(state.selectedItems),
+            checkout: false,
         }
 
         case "REMOVE_ITEM":
@@ -49,7 +50,7 @@ const cartReducer = (state , action) => {
                 if (item.id === action.data.id) {
                     return {
                         ...item,
-                        quantity: item.quantity++,
+                        quantity: item.quantity + 1,
                     }
                 }
                 return item;
@@ -65,7 +66,7 @@ const cartReducer = (state , action) => {
                 if (item.id === action.data.id) {
                     return {
                         ...item,
-                        quantity: item.quantity--,
+                        quantity: item.quantity - 1,
                     }
                 }
                 return item;
