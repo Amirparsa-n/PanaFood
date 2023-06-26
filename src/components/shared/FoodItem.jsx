@@ -41,7 +41,6 @@ const FoodItem = ({ name, price, image, id, data}) => {
 
                 <div className='mt-6'>
                     <p className='text-[22px] font-bold'>{name}</p>
-                    <p>{state.selectedItems.quantity}</p>
                 </div>
 
                 {/* Cart */}
