@@ -63,7 +63,7 @@ const RecommendedFood = ({ food, categoryData, id, resultFilter }) => {
                 {RecommendedFood.length ?
 
                   RecommendedFood.map((food) => (
-                    <RecommendedFoodDetails key={food.id} name={food.name} price={food.price.formatted} image={food.image.url} id={food.id} />
+                    <RecommendedFoodDetails key={food.id} name={food.name} price={food.price.formatted} image={food.image.url} id={food.id} data={food} />
                   ))
 
 
