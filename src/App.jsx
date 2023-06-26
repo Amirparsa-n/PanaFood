@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 // context
 import ProductsContextProvider from './context/ProductsContextProvider';
 import ContextProvider from './context/ContextProvider';
+import CartContextProvider from './context/CartContextProvider';
 
 // component
 import Home from './pages/Home';
@@ -37,14 +38,16 @@ function App() {
   return (
     <ProductsContextProvider>
       <ContextProvider>
-        <div className='text-slate-800 font-Mazzard'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/:id' element={<FoodDetailsPage />} />
-            <Route path='/cart' element={<CartList />} />
-            <Route path='/notfound' element={<NotFound />} />
-          </Routes>
-        </div>
+        <CartContextProvider>
+          <div className='text-slate-800 font-Mazzard'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/:id' element={<FoodDetailsPage />} />
+              <Route path='/cart' element={<CartList />} />
+              <Route path='/notfound' element={<NotFound />} />
+            </Routes>
+          </div>
+        </CartContextProvider>
       </ContextProvider>
     </ProductsContextProvider>
   )

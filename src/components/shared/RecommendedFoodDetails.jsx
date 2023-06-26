@@ -8,7 +8,7 @@ import heart from '../../assets/images/heart.svg'
 const RecommendedFoodDetails = ({ name, price, image, id  }) => {
     return (
         <div className='flex flex-row justify-center'>
-            <div className='w-[95%] sm:w-[98%] md:w-[92%] border border-gray-400 rounded-[35px] px-6 relative pb-6 mt-6 mb-4'>
+            <div className='w-[95%] sm:w-[98%] md:w-[92%] border border-gray-400 rounded-[35px] px-6 relative pb-6 mt-10 mb-4'>
 
                 <div className='h-32 -mt-10 flex items-center'>
                     <img src={image} alt="image food" className='w-32 h-fit inline' />
