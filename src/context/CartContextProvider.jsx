@@ -3,7 +3,7 @@ import { useReducer } from 'react';
 
 const initialValue = {
     selectedItems: [],
-    itemCounter: 0, 
+    itemsCounter: 0, 
     total: 0,
     checkout: false,
 }
@@ -12,10 +12,10 @@ const initialValue = {
 const cartReducer = (state , action) => {
 
     const sumItems = (items) => {
-        const itemCounter = items.reduce((number, food) => number + food.quantity, 0);
-        const total = items.reduce((number, food) => number + food.quantity * food.price.formatted, 0);
+        let itemsCounter = items.reduce((number, food) => number + food.quantity, 0);
+        let total = items.reduce((number, food) => number + food.quantity * food.price.formatted, 0).toFixed(2);
 
-        return {itemCounter, total};
+        return {itemsCounter, total};
     }
 
     console.log(state);
@@ -41,7 +41,7 @@ const cartReducer = (state , action) => {
             return {
                 ...state,
                 selectedItems: [...newSelectedItems],
-                ...sumItems(state.selectedItems)
+                ...sumItems(newSelectedItems)
             }
 
 
@@ -58,7 +58,7 @@ const cartReducer = (state , action) => {
             return {
                 ...state,
                 selectedItems: increase,
-                ...sumItems(state.selectedItems)
+                ...sumItems(increase)
             }
 
         case "DECREASE":
@@ -74,7 +74,7 @@ const cartReducer = (state , action) => {
             return {
                 ...state,
                 selectedItems: decrease,
-                ...sumItems(state.selectedItems)
+                ...sumItems(decrease)
             }
 
         case "CHECKOUT":
