@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@uidotdev/usehooks": "^2.0.1",
     "aos": "^2.3.4",
     "dotenv": "^16.1.4",

@@ -80,3 +80,20 @@
 .cartEmptyHeight {
     height: calc(100vh - 220px);
 }
+
+.fadeParagraph {
+    position: relative;
+}
+
+.fadeParagraph::after {
+    content: "";
+    width: 100%;
+    height: 30px;
+    background: 
+        linear-gradient(
+            -45deg, #fff 2%, transparent
+        );
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

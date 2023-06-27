@@ -40,7 +40,7 @@ const CartList = () => {
                 <>
                 <div className='container'>
                     
-                    <h1 className='text-2xl font-bold md:mt-6'>My Cart List</h1>
+                    <h1 className='text-2xl font-bold md:mt-6 md:text-4xl'>My Cart List</h1>
 
 
 

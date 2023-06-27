@@ -31,7 +31,13 @@ const likeReducer = (state , action) => {
                 ...state,
                 selectedFavoriteFood: [...newSelectedFavoriteFood],
                 itemsCounter: state.itemsCounter--,
-            }            
+            } 
+            
+        case "CLEAR_LIKE":
+            return {
+                selectedFavoriteFood: [],
+                itemsCounter: 0, 
+            }
             
             
         default:
