@@ -1,10 +1,21 @@
 import React, {createContext} from 'react';
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
-let initialValue = {
-    selectedFavoriteFood: [],
-    itemsCounter: 0, 
+
+const savedFavoriteFoodItems = localStorage.getItem('FavoriteFoodItem');
+
+let initialValue;
+
+if (savedFavoriteFoodItems) {
+    initialValue = JSON.parse(savedFavoriteFoodItems)
+} else {
+    initialValue = {
+        selectedFavoriteFood: [],
+        itemsCounter: 0, 
+    }
 }
+
+
 
 
 const likeReducer = (state , action) => {
@@ -51,6 +62,10 @@ const FavoriteFoodContextProvider = ({children}) => {
 
 
     const [stateLike, dispatchLike] = useReducer(likeReducer, initialValue)
+
+    useEffect(() => {
+        localStorage.setItem('FavoriteFoodItem', JSON.stringify(stateLike));
+    }, [stateLike])
 
     return (
         <FavoriteFoodContext.Provider value={{stateLike, dispatchLike}}>
