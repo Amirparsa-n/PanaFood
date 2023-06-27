@@ -1,6 +1,6 @@
 import section1 from '../assets/images/section1.webp';
 import section2 from '../assets/images/section2.webp';
-import section3 from '../assets/images/section3.webp';
+import section3 from '../assets/images/Section3.webp';
 
 export const ServiceData = [
     {
