@@ -1,5 +1,9 @@
 import React, {useContext} from 'react';
 
+// lazy loading
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import { ContextDataProvider } from '../../context/ContextProvider';
 
 const CategoriesDetails = ({ name, image, description }) => {
@@ -19,7 +23,13 @@ const CategoriesDetails = ({ name, image, description }) => {
                 style={currentCategory === name ? {backgroundColor: '#E95051', color: '#fff'} : {backgroundColor: 'rgba(233,80,81,0.1)', color: '#000'}}
             >
                 <div>
-                    <img src={image} alt="CategoryImage" className='w-[30px] sm:w-[40px] md:w-[64px]' />
+                    <LazyLoadImage
+                        alt={name}
+                        className='w-[30px] sm:w-[40px] md:w-[64px]'
+                        src={image} 
+                        effect="blur"
+                    />
+                    {/* <img src={image} alt="CategoryImage" className='w-[30px] sm:w-[40px] md:w-[64px]' /> */}
                 </div>
                 <div>
                     <p className='text-sm sm:text-[15px] md:text-xl'>{description}</p>

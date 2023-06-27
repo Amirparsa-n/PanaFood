@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContextProvider';
 import { FavoriteFoodContext } from '../../context/FavoriteFoodContextProvider';
 
+// lazy loading
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 // function
 import { isInCart } from '../../helper/Function';
@@ -33,7 +37,12 @@ const FoodItem = ({ name, price, image, id, data}) => {
             <div className='col-span-1 bg-white shadow-MobileNavigationBar rounded-[35px] px-6 relative pb-6'>
 
                 <div className='h-32 -mt-10 flex items-center'>
-                    <img src={image} alt="image food" className='w-32 h-fit inline' />
+                    <LazyLoadImage
+                        alt={name}
+                        className='w-32 h-fit inline'
+                        src={image} 
+                        effect="blur"
+                    />
                 </div>
 
                 <div className='absolute right-6 top-4 flex flex-row-reverse items-center gap-x-4'>

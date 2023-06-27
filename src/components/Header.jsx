@@ -2,11 +2,15 @@ import React from 'react';
 
 import { HashLink } from 'react-router-hash-link';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import Navbar from './Navbar';
 
 // images
 import logo from '../assets/images/Logo.png';
 import banner from '../assets/images/baner.webp';
+import bannerLow from '../assets/images/banerLow.webp';
 import Cherry from '../assets/images/Cherry.png'
 
 const Header = () => {
@@ -29,8 +33,18 @@ const Header = () => {
                     <div className='flex flex-col md:flex-row-reverse gap-y-4 md:gap-y-0 md:gap-x-8 md:items-center md:justify-between'>
 
                         {/* banner */}
-                        <div className='flex justify-center' data-aos="zoom-in" data-aos-offset="0">
-                            <img src={banner} alt="banner" className='w-[230px] md:w-[550px] xl:w-[605px]' />
+                        <div className='flex justify-center h-[300px] md:h-auto' data-aos="zoom-in" data-aos-offset="0">
+
+                        <LazyLoadImage
+                        alt={"banner"}
+                        // height={400}
+                        className='w-[230px] md:w-[550px] xl:w-[605px]'
+                        src={banner} 
+                        effect="blur"
+                        placeholderSrc={bannerLow}
+                        // width={600} 
+                        />
+                            {/* <img src={banner} alt="banner" className='w-[230px] md:w-[550px] xl:w-[605px]' /> */}
                         </div>
 
                         <div data-aos="fade-right" data-aos-delay="1000">
