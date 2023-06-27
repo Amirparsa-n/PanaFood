@@ -18,15 +18,15 @@ if (savedCartItems) {
 
 const cartReducer = (state , action) => {
 
+    
     const sumItems = (items) => {
         let itemsCounter = items.reduce((number, food) => number + food.quantity, 0);
         let total = items.reduce((number, food) => number + food.quantity * food.price.formatted, 0).toFixed(2);
-
+        
         return {itemsCounter, total};
     }
-
-    console.log(state);
-
+    
+    
     switch (action.type) {
 
         case "ADD-ITEM":
@@ -111,11 +111,13 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
 
+
     const [state , dispatch] = useReducer(cartReducer , initialValue)
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(state));
     }, [state])
+
 
 
     return (
