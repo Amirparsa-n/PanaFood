@@ -12,3 +12,9 @@ export const quantityCount = (state, id) => {
         return state.selectedItems[index].quantity;
     }
 }
+
+export const checkIsClick = (stateLike, id) => {
+    const result = stateLike.selectedFavoriteFood.find(item => item.id === id);
+
+    return result
+}

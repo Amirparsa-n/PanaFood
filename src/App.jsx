@@ -9,12 +9,14 @@ import { Route, Routes } from 'react-router-dom';
 import ProductsContextProvider from './context/ProductsContextProvider';
 import ContextProvider from './context/ContextProvider';
 import CartContextProvider from './context/CartContextProvider';
+import FavoriteFoodContextProvider from './context/FavoriteFoodContextProvider';
 
 // component
 import Home from './pages/Home';
 import FoodDetailsPage from './pages/FoodDetailsPage';
 import CartList from './pages/CartList';
 import NotFound from './pages/NotFound';
+import FavoriteFood from './pages/FavoriteFood';
 
 // Aos
 import Aos from 'aos';
@@ -39,15 +41,17 @@ function App() {
     <ProductsContextProvider>
       <ContextProvider>
         <CartContextProvider>
-          <div className='text-slate-800 font-Mazzard'>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/:id' element={<FoodDetailsPage />} />
-              <Route path='/cart' element={<CartList />} />
-              
-              <Route path='/notfound' element={<NotFound />} />
-            </Routes>
-          </div>
+          <FavoriteFoodContextProvider>
+              <div className='text-slate-800 font-Mazzard'>
+                <Routes>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/:id' element={<FoodDetailsPage />} />
+                  <Route path='/cart' element={<CartList />} />
+                  <Route path='/favorite' element={<FavoriteFood />} />
+                  <Route path='/notfound' element={<NotFound />} />
+                </Routes>
+              </div>
+          </FavoriteFoodContextProvider>
         </CartContextProvider>
       </ContextProvider>
     </ProductsContextProvider>

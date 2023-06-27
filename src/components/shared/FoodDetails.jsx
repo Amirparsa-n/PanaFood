@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 
 // image
 import heart from '../../assets/images/heart.svg';
+import heartF from '../../assets/icons/heartF.svg';
 
 // icons
 import increase from '../../assets/icons/increase.svg';
@@ -10,16 +11,18 @@ import trash from '../../assets/icons/trash.svg';
 
 // context
 import { CartContext } from '../../context/CartContextProvider';
+import { FavoriteFoodContext } from '../../context/FavoriteFoodContextProvider';
 
 // function
 import { isInCart } from '../../helper/Function';
 import { quantityCount } from '../../helper/Function';
-
+import { checkIsClick } from '../../helper/Function';
 
 
 const FoodDetails = ({ name, image, description, price, id, data }) => {
 
     const {state, dispatch} = useContext(CartContext);
+    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext);
 
     return (
         <div className='container md:mt-12'>
@@ -37,9 +40,22 @@ const FoodDetails = ({ name, image, description, price, id, data }) => {
                         <p className='text-[22px] font-semibold'>{price}$</p>
 
                         <div className='flex gap-x-4 items-center'>
-                            <div>
-                                <img src={heart} alt="heartIcon" />
-                            </div>
+                            {checkIsClick(stateLike, id) ? 
+                                <button
+                                type='button'
+                                onClick={() => dispatchLike({type: 'REMOVED_LIKE', data: data})}
+                                >   
+                                    <img src={heartF} alt="heartIcon" />
+                                </button>
+                            :
+                                <button
+                                type='button'
+                                onClick={() => dispatchLike({type: 'ADD_LIKE', data: data})}
+                                >   
+                                    <img src={heart} alt="heartIcon" />
+                                </button>
+                            }
+                            
 
                             <div className='flex gap-x-2 items-stretch'>
 
