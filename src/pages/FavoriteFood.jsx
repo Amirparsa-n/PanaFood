@@ -33,19 +33,19 @@ const FavoriteFood = () => {
             
             {stateLike.itemsCounter > 0 ?
                 <div>
-                    <div className='flex justify-between items-center md:mt-6 mb-12'>
+                    <div className='flex justify-between flex-wrap items-center md:mt-6 mb-12 gap-y-4'>
                         <h1 className='text-2xl md:text-4xl font-bold '>My Favorite Food</h1>
 
                         <button
                         type='button'
-                        className='text-lg bg-primaryYellow hover:bg-primaryRed transition-all shadow-button shadow-primaryYellow hover:shadow-primaryRed text-white py-3 rounded-full px-5'
+                        className='text-sm md:text-lg bg-primaryYellow hover:bg-primaryRed transition-all shadow-button shadow-primaryYellow hover:shadow-primaryRed text-white py-2 px-2 md:py-3 rounded-full md:px-5'
                         onClick={() => dispatchLike({type: 'CLEAR_LIKE'})}
                         >
                             Clear All Favorite
                         </button>
                     </div>
 
-                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 md:gap-x-24'>
                         {stateLike.selectedFavoriteFood.map(item => (
                             <FavoriteFoodDetails key={item.id} name={item.name} price={item.price.formatted} description={item.description} image={item.image.url} id={item.id} data={item}  />
                         ))}

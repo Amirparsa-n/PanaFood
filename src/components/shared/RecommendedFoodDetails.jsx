@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 
 // context
 import { CartContext } from '../../context/CartContextProvider';
+import { FavoriteFoodContext } from '../../context/FavoriteFoodContextProvider';
+
 
 // function
 import { isInCart } from '../../helper/Function';
 import { quantityCount } from '../../helper/Function';
+import { checkIsClick } from '../../helper/Function';
 
 // icons
 import heart from '../../assets/images/heart.svg'
+import heartF from '../../assets/icons/heartF.svg';
 import increase from '../../assets/icons/increase.svg';
 import decrease from '../../assets/icons/decrease.svg';
 import trash from '../../assets/icons/trash.svg';
@@ -19,6 +23,7 @@ import trash from '../../assets/icons/trash.svg';
 const RecommendedFoodDetails = ({ name, price, image, id ,data }) => {
 
     const {state, dispatch} = useContext(CartContext);
+    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext);
 
 
     return (
@@ -35,7 +40,22 @@ const RecommendedFoodDetails = ({ name, price, image, id ,data }) => {
                         </div>
 
                         <div>
-                            <img src={heart} alt="heartIcon" />
+                            {checkIsClick(stateLike, id) ? 
+                                <button
+                                type='button'
+                                onClick={() => dispatchLike({type: 'REMOVED_LIKE', data: data})}
+                                >   
+                                    <img src={heartF} alt="heartIcon" />
+                                </button>
+                            :
+                                <button
+                                type='button'
+                                onClick={() => dispatchLike({type: 'ADD_LIKE', data: data})}
+                                >   
+                                    <img src={heart} alt="heartIcon" />
+                                </button>
+                            }
+                            
                         </div>
                 </div>
 

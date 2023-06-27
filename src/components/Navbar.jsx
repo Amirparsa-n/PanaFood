@@ -8,11 +8,14 @@ import logo from '../assets/images/Logo.png';
 
 // context
 import { CartContext } from '../context/CartContextProvider';
+import { FavoriteFoodContext } from '../context/FavoriteFoodContextProvider';
 
 
 const Navbar = () => {
 
     const {state} = useContext(CartContext);
+    const {stateLike} = useContext(FavoriteFoodContext);
+
 
     return (
         <div className='h-[80px] xl:h-[120px] bg-transparent flex items-center '>
@@ -65,7 +68,7 @@ const Navbar = () => {
                     <Link to={'/favorite'}>
                         <div className='relative'>
                             <div className='bg-primaryRed absolute -top-[14px] left-[14px] text-white rounded-full'>
-                                <span className='p-[6px] '>4</span>
+                                <span className='p-[6px] '>{stateLike.itemsCounter}</span>
                             </div>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="25.135" viewBox="0 0 28 25.135">

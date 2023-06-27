@@ -18,13 +18,13 @@ const FavoriteFoodDetails = ({name, price, image, id ,data, description }) => {
 
     return (
         <div className='flex flex-row justify-center'>
-            <div className='w-[95%] sm:w-[98%] md:w-[92%] border border-gray-400 rounded-[35px] px-6 relative pb-6 mt-10 mb-4'>
+            <div className='border border-gray-400 rounded-[35px] px-6 relative pb-6 mt-10 mb-4'>
 
                 <div className='h-32 -mt-4 flex items-center justify-center'>
                     <img src={image} alt="image food" className='w-52 h-fit inline'/>
                 </div>
 
-                <div className='mt-8'>
+                <div className='mt-10'>
                     <p className='text-[22px] font-bold'>{name}</p>
                 </div>
 

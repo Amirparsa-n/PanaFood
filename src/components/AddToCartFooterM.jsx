@@ -2,21 +2,28 @@ import React, {useContext} from 'react';
 
 // Icon
 import heart from '../assets/images/heart.svg';
+import heartF from '../assets/icons/heartF.svg';
 import increase from '../assets/icons/increase.svg';
 import decrease from '../assets/icons/decrease.svg';
 import trash from '../assets/icons/trash.svg';
 
 // Context
 import { CartContext } from '../context/CartContextProvider';
+import { FavoriteFoodContext } from '../context/FavoriteFoodContextProvider';
+
 
 // function
 import { isInCart } from '../helper/Function';
 import { quantityCount } from '../helper/Function';
+import { checkIsClick } from '../helper/Function';
+
 
 
 const AddToCartFooterM = ({ price, data, id }) => {
 
     const {state, dispatch} = useContext(CartContext);
+    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext);
+
 
     return (
         <div className='bg-white shadow-MobileNavigationBar py-4 rounded-t-2xl fixed bottom-0 left-0 w-full'>
@@ -28,7 +35,21 @@ const AddToCartFooterM = ({ price, data, id }) => {
 
                 <div className='flex gap-x-4 items-center'>
                     <div>
-                        <img src={heart} alt="heartIcon" />
+                            {checkIsClick(stateLike, id) ? 
+                                <button
+                                type='button'
+                                onClick={() => dispatchLike({type: 'REMOVED_LIKE', data: data})}
+                                >   
+                                    <img src={heartF} alt="heartIcon" />
+                                </button>
+                            :
+                                <button
+                                type='button'
+                                onClick={() => dispatchLike({type: 'ADD_LIKE', data: data})}
+                                >   
+                                    <img src={heart} alt="heartIcon" />
+                                </button>
+                            }
                     </div>
 
                     <div className='flex gap-x-2 items-stretch'>
