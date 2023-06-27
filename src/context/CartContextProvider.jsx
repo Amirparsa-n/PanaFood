@@ -1,26 +1,43 @@
 import React, {createContext} from 'react';
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
-const initialValue = {
-    selectedItems: [],
-    itemsCounter: 0, 
-    total: 0,
-    checkout: false,
+const savedCartItems = localStorage.getItem('cartItems');
+
+let initialValue;
+
+if (savedCartItems) {
+    initialValue = JSON.parse(savedCartItems)
+} else {
+    initialValue = {
+        selectedItems: [],
+        itemsCounter: 0, 
+        total: 0,
+        checkout: false,
+    }
 }
-
 
 const cartReducer = (state , action) => {
 
+    
     const sumItems = (items) => {
         let itemsCounter = items.reduce((number, food) => number + food.quantity, 0);
         let total = items.reduce((number, food) => number + food.quantity * food.price.formatted, 0).toFixed(2);
-
+        
         return {itemsCounter, total};
     }
-
-    console.log(state);
-
+    
+    
     switch (action.type) {
+        
+
+        case "SET_CART":
+        return {
+            ...state,
+            selectedItems: action.data.selectedItems,
+            itemsCounter: action.data.itemsCounter,
+            total: action.data.total,
+            checkout: action.data.checkout
+        }
 
         case "ADD-ITEM":
         if (!state.selectedItems.find(item => item.id === action.data.id)) {
@@ -104,7 +121,25 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
 
+
     const [state , dispatch] = useReducer(cartReducer , initialValue)
+
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem('cartItems');
+        
+        // console.log(JSON.parse(savedCartItems));
+        if (savedCartItems) {
+          dispatch({ type: 'SET_CART', data: JSON.parse(savedCartItems) });
+        }
+    }, []);
+
+
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(state));
+    }, [state])
+
+    
 
     return (
         <CartContext.Provider value={{state, dispatch}}>
