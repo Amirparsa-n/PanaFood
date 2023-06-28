@@ -1,0 +1,39 @@
+{
+    "name": "Pana Food",
+    "short_name": "Pana Food",
+    "description": "Selling food",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#E95051",
+    "icons": [
+      {
+        "src": "/touch.png",
+        "sizes": "800x800",
+        "type": "image/png"
+      },
+      {
+        "src": "/192x192.png",
+        "size": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/apple-touch-icon.png",
+        "size": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/maskable.png",
+        "size": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/maskable.png",
+        "size": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      }
+    ]
+  }
+  
