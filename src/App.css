@@ -99,8 +99,14 @@
 }
 
 
-.bg-login-form {
-    background-image: url(./assets/images/fast-food-dish-blue.webp);
+
+@media (min-width: 768px) {
+    .bg-login-form {
+        background: url(./assets/images/fast-food-dish-blue.webp), linear-gradient(90deg, rgba(255,255,255,1) 10%, #E95051 70%), rgb(255,255,255);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
 }
 
 .bg-form {
