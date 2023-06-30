@@ -97,3 +97,159 @@
     bottom: 0;
     right: 0;
 }
+
+
+.bg-login-form {
+    background-image: url(./assets/images/fast-food-dish-blue.webp);
+}
+
+.bg-form {
+    width: 100%;
+    background-color: rgba(255,255,255,0.06);
+    padding: 50px 25px;
+    border: 1.5px solid rgba(255,255,255,0.06);
+    box-shadow: 0 0 30px 1px rgba(0,0,0,0.20);
+    backdrop-filter: blur(15px);  
+    border-radius: 16px;
+}
+
+
+.shape1{
+    width: 130px;
+    height: 260px;
+    position: absolute;
+    background: linear-gradient(
+        45deg,
+        #be9ae6,
+        #660cc7
+    );
+    border-radius: 12rem 0 0 12rem;
+    z-index: -1;
+
+}
+.shape2{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    background: linear-gradient(
+        135deg,
+        #FDC55E,
+        #f0d4a1
+    );
+    border-radius: 50%;
+    z-index: -1;
+}
+
+#user label {
+    position: absolute;
+    left: 10%;
+    top: 37%;
+    pointer-events: none;
+    color: gray;
+}
+
+
+#user input[type="text"]:focus + label,
+#user input[type="password"]:focus + label,
+#user input[type="email"]:focus + label{
+    transform: translateY(-120%) scale(0.9);
+    transition: all 0.4s;
+}
+
+
+
+#user input[type="text"],
+#user input[type="password"],
+#user input[type="email"] {
+    box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
+      4px 4px 4px rgba(218, 218, 218, 0.13);
+}
+
+#user button {
+
+    font-size: medium !important;
+    box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178) !important;
+    outline: none;
+    border-radius: 0.5rem !important;
+    padding: 10px !important;
+    margin: 10px auto !important;
+    width: 100% !important;
+    display: block !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+    font-size: 1.1em !important;
+}
+
+#user input[type="text"],
+#user input[type="password"],
+#user input[type="email"]{
+  background: rgba(253, 253, 253, 0) !important;
+  outline: none;
+  border: 1px solid rgba(255, 0, 0, 0) !important;
+  border-radius: 0.5rem !important;
+  padding: 10px !important;
+  margin: 10px auto !important;
+  width: 100% !important;
+  display: block !important;
+  color: #425981 !important;
+  font-weight: 500 !important;
+  font-size: 1.1em !important;
+}
+
+
+/* checkbox */
+
+input[type="checkbox"]::before {
+
+background-color: #08bb68;
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+  }
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: #dbdbdb;
+    width: 1.15em;
+    height: 1.15em;
+    border-radius: 6px;
+    transform: translateY(0.2em);
+    margin-right: 0.3rem;
+    background-color: #dbdbdb;
+    display: grid;
+    place-content: center;
+}
+
+
+
+#check:checked {
+    background-color: #08bb68 !important;
+}
+
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 4px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    
+}
+  
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+    transition: 120ms transform ease-in-out;
+
+}

@@ -87,7 +87,7 @@ const Navbar = () => {
                     </Link>
 
                     <div>
-                        <Link type='button' className='flex gap-x-2 bg-primaryRed px-2 lg:px-4 py-2 lg:py-3 rounded-full text-white items-center shadow-button'>
+                        <Link to={'/user'} type='button' className='flex gap-x-2 bg-primaryRed px-2 lg:px-4 py-2 lg:py-3 rounded-full text-white items-center shadow-button'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="19.99" height="20"><g fill="#fff"><path d="M7 5.2v9.59A4.835 4.835 0 0 0 12.2 20h2.59a4.832 4.832 0 0 0 5.2-5.2V5.2A4.819 4.819 0 0 0 14.8 0h-2.6A4.832 4.832 0 0 0 7 5.2Z" data-name="Path 1" opacity=".4"/><path d="m10.43 6.12 3.35 3.35a.754.754 0 0 1 0 1.06l-3.35 3.35a.75.75 0 0 1-1.06-1.06l2.07-2.07H.75a.75.75 0 0 1 0-1.5h10.69L9.37 7.18a.75.75 0 0 1 1.06-1.06Z" data-name="Path 2"/></g></svg>
                             <span className="font-light">Login</span>
                         </Link>

@@ -20,7 +20,7 @@ const MobileNavigationBar = () => {
             setIconColorCart('#E95051')
         } else if (location.pathname === '/favorite') {
             setIconColorFavorite('#E95051')
-        } else if (location.pathname === '/login') {
+        } else if (location.pathname === '/user') {
             setIconColorUser('#E95051')
         }
     }, [location])
@@ -34,7 +34,7 @@ const MobileNavigationBar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.973"><path style={{fill: iconColorHome}} d="M21.639 5.775 14.733.944a5.817 5.817 0 0 0-6.581.156L2.146 5.787A6.177 6.177 0 0 0 0 10.151v8.272a5.551 5.551 0 0 0 5.538 5.55h12.924A5.541 5.541 0 0 0 24 18.435v-8.128a6.118 6.118 0 0 0-2.361-4.532Zm-8.739 13.4a.9.9 0 0 1-1.8 0v-3.6a.9.9 0 0 1 1.8 0Z"/></svg>
                         </Link>
 
-                        <Link to={'/login'}>
+                        <Link to={'/user'}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="27.063"><path style={{fill: iconColorUser}} d="M11.999 13.18A6.59 6.59 0 1 0 5.39 6.59a6.6 6.6 0 0 0 6.609 6.59Z" data-name="Path 68"/><path style={{fill: iconColorUser}} d="M12 16.519c-6.614 0-12 4.429-12 9.885a.653.653 0 0 0 .66.659h22.68a.653.653 0 0 0 .66-.659c0-5.456-5.386-9.885-12-9.885Z" data-name="Path 69"/></svg>
                         </Link>
 

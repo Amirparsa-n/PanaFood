@@ -40,6 +40,10 @@ export default {
         '9' : '9px',
       },
 
+      transition: {
+        'all4' : 'all.4s',
+      },
+
 
     },
   },
