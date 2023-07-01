@@ -20,7 +20,6 @@ if (savedFavoriteFoodItems) {
 
 const likeReducer = (state , action) => {
 
-    console.log(state);
 
     switch (action.type) {
         case "ADD_LIKE":

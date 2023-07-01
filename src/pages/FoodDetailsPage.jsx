@@ -31,7 +31,6 @@ const FoodDetailsPage = () => {
     const navigate = useNavigate();
     
     const resultFilter = foodData.filter(item => item.id == id);
-    console.log(resultFilter);
 
 
     if (resultFilter.length === 0) {

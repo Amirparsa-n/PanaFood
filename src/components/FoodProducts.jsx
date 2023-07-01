@@ -17,7 +17,6 @@ const FoodProducts = () => {
     
 
     const resultFilter = foodData.filter(category => category.categories[0].name === currentCategory)
-    console.log(resultFilter);
 
     const quantityResult = [1, 2 ,3 ,4 ,5 ,6];
 

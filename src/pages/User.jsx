@@ -25,6 +25,7 @@ function classNames(...classes) {
 const User = () => {
 
     const [user, setUser] = useState({})
+    const [userLogin, setUserLogin] = useState({})
     const [isWelcomeShow, setIsWelcomeShow] = useState(false)
 
     const [currentTap, setCurrentTap] = useState('Login');
@@ -130,11 +131,9 @@ const User = () => {
                                     <div>
                                         <Formik 
                                         initialValues={{name: ''  , email: '', password: '' ,confirmPassword: '', checkbox:false}} 
-                                        onSubmit={(values) => {console.log(values)}}
+                                        onSubmit={(values) => {setUserLogin(values)}}
                                         validate={(values) => {
                                             const errors = {};
-                                            // console.log(errors)
-                                            console.log(user);
                                             
                                             if (values.email !== user.email) {
                                                 errors.email = 'The email is not valid'

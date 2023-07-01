@@ -18,7 +18,6 @@ const RecommendedFood = ({ food, categoryData, id, resultFilter }) => {
         setRecommendedFood(RecommendedFoodData)
     }, [resultFilter])
 
-    console.log(RecommendedFood);
 
 
     const responsive = {

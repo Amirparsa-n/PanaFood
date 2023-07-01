@@ -53,7 +53,7 @@ const CartList = () => {
                                 <span>quantity</span>
                             </div>
 
-                            <div className='h-[340px] md:h-auto overflow-scroll md:overflow-hidden '>
+                            <div className='h-[calc(100vh_-_460px)] md:h-auto overflow-scroll md:overflow-hidden '>
                                 {state.selectedItems.map(item => (
                                     <CartItem key={item.id} name={item.name} image={item.image.url} description={item.description} price={item.price.formatted} id={item.id} data={item} />
                                 ))}
