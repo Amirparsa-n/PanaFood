@@ -2,9 +2,11 @@ import React, {useContext} from 'react';
 
 import { Link } from 'react-router-dom';
 
-// context
-import { CartContext } from '../../context/CartContextProvider';
-import { FavoriteFoodContext } from '../../context/FavoriteFoodContextProvider';
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {addItem, removeItem, increase, decrease} from '../../Redux/Features/cartSlice';
+import { addLike, removeLike } from '../../Redux/Features/favoriteFoodSlice';
 
 // lazy loading
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -22,16 +24,16 @@ import { checkIsClick } from '../../helper/Function';
 // icons
 import heart from '../../assets/images/heart.svg';
 import heartF from '../../assets/icons/heartF.svg';
-import increase from '../../assets/icons/increase.svg';
-import decrease from '../../assets/icons/decrease.svg';
+import increaseIcon from '../../assets/icons/increase.svg';
+import decreaseIcon from '../../assets/icons/decrease.svg';
 import trash from '../../assets/icons/trash.svg';
 
 
 const FoodItem = ({ name, price, image, id, data}) => {
 
-    const {state, dispatch} = useContext(CartContext);
-    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext);
-
+    const state = useSelector(state => state.cart);
+    const stateLike = useSelector(state => state.favoriteFood)
+    const dispatch = useDispatch();
 
     return (
             <div className='col-span-1 bg-white shadow-MobileNavigationBar rounded-[35px] px-6 relative pb-6'>
@@ -54,14 +56,14 @@ const FoodItem = ({ name, price, image, id, data}) => {
                             {checkIsClick(stateLike, id) ? 
                                 <button
                                 type='button'
-                                onClick={() => dispatchLike({type: 'REMOVED_LIKE', data: data})}
+                                onClick={() => dispatch(removeLike(data))}
                                 >   
                                     <img src={heartF} alt="heartIcon" />
                                 </button>
                             :
                                 <button
                                 type='button'
-                                onClick={() => dispatchLike({type: 'ADD_LIKE', data: data})}
+                                onClick={() => dispatch(addLike(data))}
                                 >   
                                     <img src={heart} alt="heartIcon" />
                                 </button>
@@ -83,7 +85,7 @@ const FoodItem = ({ name, price, image, id, data}) => {
                             <button
                             type='button'
                             className='bg-primaryRed rounded-2xl px-3 py-9 flex gap-x-2 shadow-button transition-transform'
-                            onClick={() => dispatch({type:'ADD-ITEM' , data: data})}
+                            onClick={() => dispatch(addItem(data))}
                             >
                                 <p className='text-white'>
                                     Add to cart
@@ -93,8 +95,8 @@ const FoodItem = ({ name, price, image, id, data}) => {
                                 </span>
                             </button>
                             :
-                                <button type='button'  onClick={() => dispatch({type:'INCREASE' , data: data})} className='bg-primaryRed rounded-2xl'>
-                                    <img src={increase} alt="increase Icon" className='px-9 py-9'/>
+                                <button type='button'  onClick={() => dispatch(increase(data))} className='bg-primaryRed rounded-2xl'>
+                                    <img src={increaseIcon} alt="increase Icon" className='px-9 py-9'/>
                                 </button>
 
                         }
@@ -105,13 +107,13 @@ const FoodItem = ({ name, price, image, id, data}) => {
                         </div>}
 
                         {quantityCount(state, id) === 1 && 
-                        <button type="button" onClick={() => dispatch({type:'REMOVE_ITEM' , data: data}) } className='bg-primaryRed rounded-2xl transition-all'>
+                        <button type="button" onClick={() => dispatch(removeItem(data)) } className='bg-primaryRed rounded-2xl transition-all'>
                             <img src={trash} alt='trash Icon' className='px-[10px]'/>
                         </button>}
 
                         {quantityCount(state, id) > 1 && 
-                        <button type="button" onClick={() => dispatch({type:'DECREASE' , data: data}) } className='bg-primaryRed rounded-2xl transition-all'>
-                            <img src={decrease} alt="increase Icon" className='px-9 py-9'/>
+                        <button type="button" onClick={() => dispatch(decrease(data)) } className='bg-primaryRed rounded-2xl transition-all'>
+                            <img src={decreaseIcon} alt="increase Icon" className='px-9 py-9'/>
                         </button>}
 
                     </div>

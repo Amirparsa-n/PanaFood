@@ -8,8 +8,6 @@ import { Route, Routes } from 'react-router-dom';
 // context
 import ProductsContextProvider from './context/ProductsContextProvider';
 import ContextProvider from './context/ContextProvider';
-import CartContextProvider from './context/CartContextProvider';
-import FavoriteFoodContextProvider from './context/FavoriteFoodContextProvider';
 
 // component
 import Home from './pages/Home';
@@ -23,6 +21,8 @@ import User from './pages/User';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
+// redux
+import { useSelector } from 'react-redux';
 
 function App() {
 
@@ -38,11 +38,22 @@ function App() {
         });
     }, [])
 
+
+  // localStorage
+  const state = useSelector(state => state.cart)
+  useEffect(() => {
+      localStorage.setItem('cartItems', JSON.stringify(state));
+  }, [state])
+
+  const stateLike = useSelector(state => state.favoriteFood)
+  useEffect(() => {
+    localStorage.setItem('FavoriteFoodItem', JSON.stringify(stateLike));
+  }, [stateLike])
+
+
   return (
     <ProductsContextProvider>
       <ContextProvider>
-        <CartContextProvider>
-          <FavoriteFoodContextProvider>
               <div className='text-slate-800 font-Mazzard'>
                 <Routes>
                   <Route path='/' element={<Home />} />
@@ -53,8 +64,6 @@ function App() {
                   <Route path='/notfound' element={<NotFound />} />
                 </Routes>
               </div>
-          </FavoriteFoodContextProvider>
-        </CartContextProvider>
       </ContextProvider>
     </ProductsContextProvider>
   )

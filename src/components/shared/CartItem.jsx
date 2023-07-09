@@ -1,21 +1,25 @@
 import React, {useContext} from 'react';
 
-// context
-import { CartContext } from '../../context/CartContextProvider';
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addItem, removeItem, increase, decrease } from '../../Redux/Features/cartSlice';
 
 // function
 import { isInCart } from '../../helper/Function';
 import { quantityCount } from '../../helper/Function';
 
 // icons
-import increase from '../../assets/icons/increase.svg';
-import decrease from '../../assets/icons/decrease.svg';
+import increaseIcon from '../../assets/icons/increase.svg';
+import decreaseIcon from '../../assets/icons/decrease.svg';
 import trash from '../../assets/icons/trash.svg';
 
 
 const CartItem = ({ name, image, description, price, id, data }) => {
 
-    const {state, dispatch} = useContext(CartContext);
+    const state = useSelector(state => state.cart);
+    const dispatch = useDispatch();
+
 
     return (
         <div className='border-b border-black border-opacity-30'>
@@ -41,19 +45,19 @@ const CartItem = ({ name, image, description, price, id, data }) => {
                 </div>
 
                 <div className='h-full bg-primaryRed rounded-2xl xl:hidden'>
-                        <button type='button'  onClick={() => dispatch({type:'INCREASE' , data: data})} className='bg-primaryYellow rounded-2xl'>
-                            <img src={increase} alt="increase Icon" className='px-9 py-9'/>
+                        <button type='button'  onClick={() => dispatch(increase(data))} className='bg-primaryYellow rounded-2xl'>
+                            <img src={increaseIcon} alt="increase Icon" className='px-9 py-9'/>
                         </button>
 
                     <div className='h-10 flex items-center justify-center'>
                         {quantityCount(state, id) === 1 && 
-                        <button type="button" onClick={() => dispatch({type:'REMOVE_ITEM' , data: data}) } className=' transition-all'>
+                        <button type="button" onClick={() => dispatch(removeItem(data)) } className=' transition-all'>
                             <img src={trash} alt='trash Icon' className='px-[10px] pb-2'/>
                         </button>}
 
                         {quantityCount(state, id) > 1 && 
-                        <button type="button" onClick={() => dispatch({type:'DECREASE' , data: data}) } className=' transition-all '>
-                            <img src={decrease} alt="increase Icon" className='px-9 pb-2 '/>
+                        <button type="button" onClick={() => dispatch(decrease(data)) } className=' transition-all '>
+                            <img src={decreaseIcon} alt="increase Icon" className='px-9 pb-2 '/>
                         </button>}
                     </div>
                 </div>
@@ -65,7 +69,7 @@ const CartItem = ({ name, image, description, price, id, data }) => {
                         <button
                         type='button'
                         className='bg-primaryRed rounded-2xl px-3 py-9 flex gap-x-2 shadow-button transition-transform'
-                        onClick={() => dispatch({type:'ADD-ITEM' , data: data})}
+                        onClick={() => dispatch(addItem(data))}
                         >
                             <p className='text-white'>
                                 Add to cart
@@ -75,8 +79,8 @@ const CartItem = ({ name, image, description, price, id, data }) => {
                             </span>
                         </button>
                         :
-                            <button type='button'  onClick={() => dispatch({type:'INCREASE' , data: data})} className='bg-primaryRed rounded-2xl'>
-                                <img src={increase} alt="increase Icon" className='px-9 py-9'/>
+                            <button type='button'  onClick={() => dispatch(increase(data))} className='bg-primaryRed rounded-2xl'>
+                                <img src={increaseIcon} alt="increase Icon" className='px-9 py-9'/>
                             </button>
 
                     }
@@ -87,13 +91,13 @@ const CartItem = ({ name, image, description, price, id, data }) => {
                     </div>}
 
                     {quantityCount(state, id) === 1 && 
-                    <button type="button" onClick={() => dispatch({type:'REMOVE_ITEM' , data: data}) } className='bg-primaryRed rounded-2xl transition-all'>
+                    <button type="button" onClick={() => dispatch(removeItem(data)) } className='bg-primaryRed rounded-2xl transition-all'>
                         <img src={trash} alt='trash Icon' className='px-[10px]'/>
                     </button>}
 
                     {quantityCount(state, id) > 1 && 
-                    <button type="button" onClick={() => dispatch({type:'DECREASE' , data: data}) } className='bg-primaryRed rounded-2xl transition-all'>
-                        <img src={decrease} alt="increase Icon" className='px-9 py-9'/>
+                    <button type="button" onClick={() => dispatch(decrease(data)) } className='bg-primaryRed rounded-2xl transition-all'>
+                        <img src={decreaseIcon} alt="increase Icon" className='px-9 py-9'/>
                     </button>}
 
                 </div>
