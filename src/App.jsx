@@ -39,10 +39,16 @@ function App() {
     }, [])
 
 
+  // localStorage
   const state = useSelector(state => state.cart)
   useEffect(() => {
       localStorage.setItem('cartItems', JSON.stringify(state));
   }, [state])
+
+  const stateLike = useSelector(state => state.favoriteFood)
+  useEffect(() => {
+    localStorage.setItem('FavoriteFoodItem', JSON.stringify(stateLike));
+  }, [stateLike])
 
 
   return (

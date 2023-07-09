@@ -1,9 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    selectedFavoriteFood: [],
-    itemsCounter: 0, 
+
+const savedFavoriteFoodItems = localStorage.getItem('FavoriteFoodItem');
+
+let initialState;
+
+if (savedFavoriteFoodItems) {
+    initialState = JSON.parse(savedFavoriteFoodItems)
+} else {
+    initialState = {
+        selectedFavoriteFood: [],
+        itemsCounter: 0, 
+    }
 }
+
 
 const favoriteFoodSlice = createSlice({
     name: 'favorite Food',
