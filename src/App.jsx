@@ -8,7 +8,6 @@ import { Route, Routes } from 'react-router-dom';
 // context
 import ProductsContextProvider from './context/ProductsContextProvider';
 import ContextProvider from './context/ContextProvider';
-import FavoriteFoodContextProvider from './context/FavoriteFoodContextProvider';
 
 // component
 import Home from './pages/Home';
@@ -49,7 +48,6 @@ function App() {
   return (
     <ProductsContextProvider>
       <ContextProvider>
-          <FavoriteFoodContextProvider>
               <div className='text-slate-800 font-Mazzard'>
                 <Routes>
                   <Route path='/' element={<Home />} />
@@ -60,7 +58,6 @@ function App() {
                   <Route path='/notfound' element={<NotFound />} />
                 </Routes>
               </div>
-          </FavoriteFoodContextProvider>
       </ContextProvider>
     </ProductsContextProvider>
   )

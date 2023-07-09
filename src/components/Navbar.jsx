@@ -9,14 +9,11 @@ import logo from '../assets/images/Logo.png';
 // redux
 import { useSelector } from 'react-redux';
 
-// context
-import { FavoriteFoodContext } from '../context/FavoriteFoodContextProvider';
-
 
 const Navbar = () => {
 
-    const {stateLike} = useContext(FavoriteFoodContext);
     const state = useSelector(state => state.cart)
+    const stateLike = useSelector(state => state.favoriteFood)
 
     return (
         <div className='h-[80px] xl:h-[120px] bg-transparent flex items-center '>

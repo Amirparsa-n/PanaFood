@@ -6,15 +6,18 @@ import { Link } from 'react-router-dom';
 import heart from '../../assets/images/heart.svg';
 import heartF from '../../assets/icons/heartF.svg';
 
-// context
-import { FavoriteFoodContext } from '../../context/FavoriteFoodContextProvider';
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addLike, removeLike } from '../../Redux/Features/favoriteFoodSlice';
 
 // functions
 import { checkIsClick } from '../../helper/Function';
 
 const FavoriteFoodDetails = ({name, price, image, id ,data, description }) => {
 
-    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext)
+    const stateLike = useSelector(state => state.favoriteFood);
+    const dispatch = useDispatch();
 
     return (
         <div className='flex flex-row justify-center'>
@@ -38,14 +41,14 @@ const FavoriteFoodDetails = ({name, price, image, id ,data, description }) => {
                         {checkIsClick(stateLike, id) ? 
                             <button
                             type='button'
-                            onClick={() => dispatchLike({type: 'REMOVED_LIKE', data: data})}
+                            onClick={() => dispatch(removeLike(data))}
                             >   
                                 <img src={heartF} alt="heartIcon" />
                             </button>
                         :
                             <button
                             type='button'
-                            onClick={() => dispatchLike({type: 'ADD_LIKE', data: data})}
+                            onClick={() => dispatch(addLike(data))}
                             >   
                                 <img src={heart} alt="heartIcon" />
                             </button>

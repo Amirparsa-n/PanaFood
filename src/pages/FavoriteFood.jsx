@@ -8,15 +8,18 @@ import MobileHeader from '../components/MobileHeader';
 import FavoriteFoodDetails from '../components/shared/FavoriteFoodDetails';
 import Navbar from '../components/Navbar';
 
-// Context
-import { FavoriteFoodContext } from '../context/FavoriteFoodContextProvider';
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { clearLike } from '../Redux/Features/favoriteFoodSlice';
 
 // image
 import FavoriteFoodImage from '../assets/images/FavoriteFoodImage.svg';
 
 const FavoriteFood = () => {
 
-    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext)
+    const stateLike = useSelector(state => state.favoriteFood);
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -39,7 +42,7 @@ const FavoriteFood = () => {
                         <button
                         type='button'
                         className='text-sm md:text-lg bg-primaryYellow hover:bg-primaryRed transition-all shadow-button shadow-primaryYellow hover:shadow-primaryRed text-white py-2 px-2 md:py-3 rounded-full md:px-5'
-                        onClick={() => dispatchLike({type: 'CLEAR_LIKE'})}
+                        onClick={() => dispatch(clearLike())}
                         >
                             Clear All Favorite
                         </button>

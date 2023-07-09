@@ -2,14 +2,11 @@ import React, {useContext} from 'react';
 
 import { Link } from 'react-router-dom';
 
-// context
-import { FavoriteFoodContext } from '../../context/FavoriteFoodContextProvider';
-
 // redux
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {addItem, removeItem, increase, decrease} from '../../Redux/Features/cartSlice';
-
+import { addLike, removeLike } from '../../Redux/Features/favoriteFoodSlice';
 
 // function
 import { isInCart } from '../../helper/Function';
@@ -26,9 +23,8 @@ import trash from '../../assets/icons/trash.svg';
 
 const RecommendedFoodDetails = ({ name, price, image, id ,data }) => {
 
-    const {stateLike, dispatchLike} = useContext(FavoriteFoodContext);
-
     const state = useSelector(state => state.cart);
+    const stateLike = useSelector(state => state.favoriteFood)
     const dispatch = useDispatch();
 
 
@@ -49,14 +45,14 @@ const RecommendedFoodDetails = ({ name, price, image, id ,data }) => {
                             {checkIsClick(stateLike, id) ? 
                                 <button
                                 type='button'
-                                onClick={() => dispatchLike({type: 'REMOVED_LIKE', data: data})}
+                                onClick={() => dispatch(removeLike(data))}
                                 >   
                                     <img src={heartF} alt="heartIcon" />
                                 </button>
                             :
                                 <button
                                 type='button'
-                                onClick={() => dispatchLike({type: 'ADD_LIKE', data: data})}
+                                onClick={() => dispatch(addLike(data))}
                                 >   
                                     <img src={heart} alt="heartIcon" />
                                 </button>
