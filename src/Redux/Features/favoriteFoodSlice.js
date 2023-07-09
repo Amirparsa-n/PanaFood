@@ -24,7 +24,7 @@ const favoriteFoodSlice = createSlice({
         removeLike: (state, action) => {
             const newSelectedFavoriteFood = state.selectedFavoriteFood.filter(item => item.id !== action.payload.id);
             state.selectedFavoriteFood= newSelectedFavoriteFood;
-            state.itemsCounter = state.itemsCounter--;
+            state.itemsCounter--;   
         },
 
         clearLike: () => {
