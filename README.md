@@ -13,7 +13,8 @@ The features of this project include food categorization, adding food items to t
 ### Used in the project
 - Commerce.js - Commerce.js was used for managing products and APIs.
 - useReducer - The shopping cart and favorites functionality were implemented with useReducer.
-- TailwindCSS - The majority of styles used in the project were implemented with Tailwind CSS.
+- Redux -  The shopping cart and favorites functionality were implemented with Redux toolkit.
+- Tailwind CSS - The majority of styles used in the project were implemented with Tailwind CSS.
 - Lazy load image - Lazy load image functionality has been added to the food images and categories.
 - PWA - This project is implemented as a Progressive Web App (PWA).
 - Formik - The login and registration forms are validated using Formik.
