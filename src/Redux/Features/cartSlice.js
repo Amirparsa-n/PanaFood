@@ -1,10 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    selectedItems: [],
-    itemCounter: 0, 
-    total: 0,
-    checkout: false,
+const savedCartItems = localStorage.getItem('cartItems');
+
+let initialState;
+
+if (savedCartItems) {
+    initialState = JSON.parse(savedCartItems)
+} else {
+    initialState = {
+        selectedItems: [],
+        itemCounter: 0, 
+        total: 0,
+        checkout: false,
+    }
 }
 
 const sumItems = (items) => {

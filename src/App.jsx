@@ -22,6 +22,8 @@ import User from './pages/User';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
+// redux
+import { useSelector } from 'react-redux';
 
 function App() {
 
@@ -36,6 +38,13 @@ function App() {
             easing: 'ease-in-quart',
         });
     }, [])
+
+
+  const state = useSelector(state => state.cart)
+  useEffect(() => {
+      localStorage.setItem('cartItems', JSON.stringify(state));
+  }, [state])
+
 
   return (
     <ProductsContextProvider>
