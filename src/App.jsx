@@ -8,7 +8,6 @@ import { Route, Routes } from 'react-router-dom';
 // context
 import ProductsContextProvider from './context/ProductsContextProvider';
 import ContextProvider from './context/ContextProvider';
-import CartContextProvider from './context/CartContextProvider';
 import FavoriteFoodContextProvider from './context/FavoriteFoodContextProvider';
 
 // component
@@ -41,7 +40,6 @@ function App() {
   return (
     <ProductsContextProvider>
       <ContextProvider>
-        <CartContextProvider>
           <FavoriteFoodContextProvider>
               <div className='text-slate-800 font-Mazzard'>
                 <Routes>
@@ -54,7 +52,6 @@ function App() {
                 </Routes>
               </div>
           </FavoriteFoodContextProvider>
-        </CartContextProvider>
       </ContextProvider>
     </ProductsContextProvider>
   )

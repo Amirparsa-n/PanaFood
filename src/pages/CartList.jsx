@@ -6,8 +6,10 @@ import { useWindowSize } from '@uidotdev/usehooks';
 
 import { Link } from 'react-router-dom';
 
-// context
-import { CartContext } from '../context/CartContextProvider';
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { clear, checkout } from '../Redux/Features/cartSlice';
 
 // component
 import MobileHeader from '../components/MobileHeader';
@@ -20,7 +22,9 @@ import SuccessfulTick from '../assets/images/SuccessfulTick.svg';
 
 const CartList = () => {
 
-    const {state, dispatch} = useContext(CartContext);
+    const state = useSelector(state => state.cart);
+    const dispatch = useDispatch();
+
 
     const size = useWindowSize();
 
@@ -36,7 +40,7 @@ const CartList = () => {
                 <Navbar />
             </div>
 
-            {state.itemsCounter > 0 ? 
+            {state.itemCounter > 0 ? 
                 <>
                 <div className='container'>
                     
@@ -67,7 +71,7 @@ const CartList = () => {
                             </div>
 
                             <div className='mt-8 lg:text-xl'>
-                                <p>Total Foods : {state.itemsCounter}</p>
+                                <p>Total Foods : {state.itemCounter}</p>
                                 <p className='mt-4'>Total Payments : {state.total} $</p>
                             </div>
 
@@ -75,7 +79,7 @@ const CartList = () => {
                                 <button
                                 type='button'
                                 className='border-2 transition-colors border-primaryYellow py-3 px-7 text-primaryYellow hover:text-white hover:bg-primaryYellow rounded-full '
-                                onClick={() => dispatch({type: 'CLEAR'})}
+                                onClick={() => dispatch(clear())}
                                 >
                                     Clear
                                 </button>
@@ -83,7 +87,7 @@ const CartList = () => {
                                 <button
                                 type='button'
                                 className='py-3 px-7 border-2 border-primaryRed bg-primaryRed text-white rounded-full shadow-button'
-                                onClick={() => dispatch({type: 'CHECKOUT'})}
+                                onClick={() => dispatch(checkout())}
                                 >
                                     Check Out
                                 </button>
@@ -106,7 +110,7 @@ const CartList = () => {
                         </div>
 
                         <div className='mt-8 text-xl'>
-                            <p>Total Foods : {state.itemsCounter}</p>
+                            <p>Total Foods : {state.itemCounter}</p>
                             <p className='mt-4'>Total Payments : {state.total} $</p>
                         </div>
 

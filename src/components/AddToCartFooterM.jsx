@@ -3,14 +3,18 @@ import React, {useContext} from 'react';
 // Icon
 import heart from '../assets/images/heart.svg';
 import heartF from '../assets/icons/heartF.svg';
-import increase from '../assets/icons/increase.svg';
-import decrease from '../assets/icons/decrease.svg';
+import increaseIcon from '../assets/icons/increase.svg';
+import decreaseIcon from '../assets/icons/decrease.svg';
 import trash from '../assets/icons/trash.svg';
 
 // Context
-import { CartContext } from '../context/CartContextProvider';
 import { FavoriteFoodContext } from '../context/FavoriteFoodContextProvider';
 
+
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addItem, removeItem, increase, decrease } from '../Redux/Features/cartSlice';
 
 // function
 import { isInCart } from '../helper/Function';
@@ -21,10 +25,12 @@ import { checkIsClick } from '../helper/Function';
 
 const AddToCartFooterM = ({ price, data, id }) => {
 
-    const {state, dispatch} = useContext(CartContext);
     const {stateLike, dispatchLike} = useContext(FavoriteFoodContext);
 
+    const state = useSelector(state => state.cart);
+    const dispatch = useDispatch();
 
+    
     return (
         <div className='bg-white shadow-MobileNavigationBar py-4 rounded-t-2xl fixed bottom-0 left-0 w-full'>
 
@@ -59,7 +65,7 @@ const AddToCartFooterM = ({ price, data, id }) => {
                             <button
                             type='button'
                             className='bg-primaryRed rounded-2xl px-3 py-9 flex gap-x-2 shadow-button transition-transform'
-                            onClick={() => dispatch({type:'ADD-ITEM' , data: data})}
+                            onClick={() => dispatch(addItem(data))}
                             >
                                 <p className='text-white'>
                                     Add to cart
@@ -69,8 +75,8 @@ const AddToCartFooterM = ({ price, data, id }) => {
                                 </span>
                             </button>
                             :
-                                <button type='button'  onClick={() => dispatch({type:'INCREASE' , data: data})} className='bg-primaryRed rounded-2xl'>
-                                    <img src={increase} alt="increase Icon" className='px-9 py-9'/>
+                                <button type='button'  onClick={() => dispatch(increase(data))} className='bg-primaryRed rounded-2xl'>
+                                    <img src={increaseIcon} alt="increase Icon" className='px-9 py-9'/>
                                 </button>
 
                         }
@@ -81,13 +87,13 @@ const AddToCartFooterM = ({ price, data, id }) => {
                         </div>}
 
                         {quantityCount(state, id) === 1 && 
-                        <button type="button" onClick={() => dispatch({type:'REMOVE_ITEM' , data: data}) } className='bg-primaryRed rounded-2xl transition-all'>
+                        <button type="button" onClick={() => dispatch(removeItem(data)) } className='bg-primaryRed rounded-2xl transition-all'>
                             <img src={trash} alt='trash Icon' className='px-[10px]'/>
                         </button>}
 
                         {quantityCount(state, id) > 1 && 
-                        <button type="button" onClick={() => dispatch({type:'DECREASE' , data: data}) } className='bg-primaryRed rounded-2xl transition-all'>
-                            <img src={decrease} alt="increase Icon" className='px-9 py-9'/>
+                        <button type="button" onClick={() => dispatch(decrease(data)) } className='bg-primaryRed rounded-2xl transition-all'>
+                            <img src={decreaseIcon} alt="increase Icon" className='px-9 py-9'/>
                         </button>}
 
                     </div>
